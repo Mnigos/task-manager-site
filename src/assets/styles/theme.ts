@@ -5,6 +5,8 @@ export const theme = {
     grey: '#C0C7D6',
     darkGrey: '#737C8E',
     black: '#000000',
+    background: '#202020',
+    backgroundComponent: '#0e0e0e',
     success: '#8FCB81',
     error: '#FF0000',
     warning: '#E1D888',
