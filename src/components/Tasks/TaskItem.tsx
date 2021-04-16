@@ -1,15 +1,12 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
+interface TaskItemProps {
+  value: string
+}
 
-export default function TaskItem({
-  value,
-}: PropsWithChildren<Partial<TaskItemProps>>) {
+export default function TaskItem({ value }: TaskItemProps) {
   return (
     <>
       <p>{value}</p>
     </>
   )
-}
-
-interface TaskItemProps {
-  value: string
 }
