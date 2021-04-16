@@ -9,7 +9,7 @@ const AllTheProviders: FC = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 
-const customRender = (ui: ReactElement, options: RenderOptions) =>
+const customRender = (ui: ReactElement, options?: RenderOptions) =>
   render(ui, { wrapper: AllTheProviders, ...options })
 
 export * from '@testing-library/react'
