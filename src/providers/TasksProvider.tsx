@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useState } from 'react'
+import { createContext, FC, useState } from 'react'
 
 type TasksContextType = {
   tasks: string[]
@@ -14,7 +14,7 @@ export const TasksContext = createContext<TasksContextType>({
   deleteTask: () => {},
 })
 
-export default function TasksProvider({ children }: PropsWithChildren<void>) {
+const TasksProvider: FC = ({ children }) => {
   const [tasks, setTasks] = useState<string[]>([])
 
   const addTask = (value: string) => setTasks([value, ...tasks])
@@ -36,3 +36,5 @@ export default function TasksProvider({ children }: PropsWithChildren<void>) {
     </TasksContext.Provider>
   )
 }
+
+export default TasksProvider
