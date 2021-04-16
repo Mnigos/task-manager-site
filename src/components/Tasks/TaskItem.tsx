@@ -1,4 +1,6 @@
 import React from 'react'
+
+import { Item } from './TaskItem.styles'
 interface TaskItemProps {
   value: string
 }
@@ -6,7 +8,7 @@ interface TaskItemProps {
 export default function TaskItem({ value }: TaskItemProps) {
   return (
     <>
-      <p>{value}</p>
+      <Item>{value}</Item>
     </>
   )
 }
