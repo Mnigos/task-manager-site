@@ -14,9 +14,7 @@ export const TasksContext = createContext<TasksContextType>({
   deleteTask: () => {},
 })
 
-export default function TasksProvider({
-  children,
-}: PropsWithChildren<Record<never, any>>) {
+export default function TasksProvider({ children }: PropsWithChildren<void>) {
   const [tasks, setTasks] = useState<string[]>([])
 
   const addTask = (value: string) => setTasks([value, ...tasks])
