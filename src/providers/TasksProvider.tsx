@@ -1,11 +1,13 @@
 import React, { createContext, FC, useState } from 'react'
 
-type TasksContextType = {
-  tasks: string[]
+import { ITask } from 'interfaces/task.interface'
+
+interface TasksContextType {
+  tasks: ITask[]
   // eslint-disable-next-line no-unused-vars
-  addTask(value: string): void
+  addTask(value: ITask): void
   // eslint-disable-next-line no-unused-vars
-  deleteTask(taskToDelete: string): void
+  deleteTask(taskToDelete: ITask): void
 }
 
 export const TasksContext = createContext<TasksContextType>({
@@ -15,11 +17,11 @@ export const TasksContext = createContext<TasksContextType>({
 })
 
 const TasksProvider: FC = ({ children }) => {
-  const [tasks, setTasks] = useState<string[]>([])
+  const [tasks, setTasks] = useState<ITask[]>([])
 
-  const addTask = (value: string) => setTasks([value, ...tasks])
+  const addTask = (task: ITask) => setTasks([task, ...tasks])
 
-  function deleteTask(taskToDelete: string) {
+  function deleteTask(taskToDelete: ITask) {
     const filteredTasks = tasks.filter(task => task !== taskToDelete)
     setTasks(filteredTasks)
   }

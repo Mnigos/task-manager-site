@@ -4,7 +4,9 @@ import { mount } from 'enzyme'
 import TasksProvider, { TasksContext } from './TasksProvider'
 
 describe('Tasks Provider', () => {
-  const taskName = 'New Task'
+  const task = {
+    name: 'New Task',
+  }
 
   function TestComponent() {
     const { tasks, addTask, deleteTask } = useContext(TasksContext)
@@ -12,8 +14,8 @@ describe('Tasks Provider', () => {
     return (
       <>
         <p data-testid="value">{...tasks}</p>
-        <button onClick={() => addTask(taskName)}>Add Task</button>
-        <button onClick={() => deleteTask(taskName)}>Delete Task</button>
+        <button onClick={() => addTask(task)}>Add Task</button>
+        <button onClick={() => deleteTask(task)}>Delete Task</button>
       </>
     )
   }
@@ -28,7 +30,7 @@ describe('Tasks Provider', () => {
 
     wrapper.find('button').at(0).simulate('click')
 
-    expect(wrapper.find('[data-testid="value"]').text()).toEqual(taskName)
+    expect(wrapper.find('[data-testid="value"]').text()).toEqual(task)
   })
 
   it('Deleting task', () => {
