@@ -2,11 +2,11 @@ import React from 'react'
 
 import TaskItem from './TaskItem'
 
-interface TaskProps {
+interface TasksProps {
   tasks: string[]
 }
 
-export default function Task({ tasks }: TaskProps) {
+export default function Tasks({ tasks }: TasksProps) {
   return (
     <>
       <div>
