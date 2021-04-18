@@ -5,7 +5,7 @@ import { ITask } from 'interfaces/task.interface'
 interface TasksContextType {
   tasks: ITask[]
   // eslint-disable-next-line no-unused-vars
-  addTask(value: ITask): void
+  addTask(task: ITask): void
   // eslint-disable-next-line no-unused-vars
   deleteTask(taskToDelete: ITask): void
 }
