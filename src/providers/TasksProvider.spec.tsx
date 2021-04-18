@@ -1,39 +1,54 @@
 import React, { useContext } from 'react'
-import { mount } from 'enzyme'
+import { mount, ReactWrapper } from 'enzyme'
 
 import TasksProvider, { TasksContext } from './TasksProvider'
 
-describe('Tasks Provider', () => {
-  const task = {
-    name: 'New Task',
-  }
+const task = {
+  name: 'New Task',
+}
 
-  function TestComponent() {
-    const { tasks, addTask, deleteTask } = useContext(TasksContext)
+function TestComponent() {
+  const { tasks, addTask, deleteTask } = useContext(TasksContext)
 
-    return (
-      <>
-        <p data-testid="value">{...tasks}</p>
-        <button onClick={() => addTask(task)}>Add Task</button>
-        <button onClick={() => deleteTask(task)}>Delete Task</button>
-      </>
-    )
-  }
-
-  const wrapper = mount(
-    <TasksProvider>
-      <TestComponent />
-    </TasksProvider>
+  return (
+    <>
+      <div data-testid="value">
+        {tasks.map((task, i) => (
+          <div key={i}>
+            <p>{task.id}</p>
+            <p>{task.name}</p>
+          </div>
+        ))}
+      </div>
+      <button data-testid="add-user" onClick={() => addTask(task)}>
+        Add Task
+      </button>
+      <button onClick={() => deleteTask(task)}>Delete Task</button>
+    </>
   )
+}
+
+describe('Tasks Provider', () => {
+  let wrapper: ReactWrapper
+
+  beforeEach(() => {
+    wrapper = mount(
+      <TasksProvider>
+        <TestComponent />
+      </TasksProvider>
+    )
+  })
+
   it('Add task', () => {
     expect(wrapper.find('[data-testid="value"]').text()).toEqual('')
 
-    wrapper.find('button').at(0).simulate('click')
+    wrapper.find('[data-testid="add-user"]').simulate('click')
 
-    expect(wrapper.find('[data-testid="value"]').text()).toEqual(task)
+    expect(wrapper.find('[data-testid="value"]').text()).toEqual(task.name)
   })
 
-  it('Deleting task', () => {
+  it('Delete task', () => {
+    wrapper.find('[data-testid="add-user"]').simulate('click')
     wrapper.find('button').at(1).simulate('click')
 
     expect(wrapper.find('[data-testid="value"]').text()).toEqual('')
