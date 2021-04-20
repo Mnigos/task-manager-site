@@ -1,29 +1,62 @@
-import React, { createContext, FC, useState } from 'react'
+import React, { createContext, FC, useReducer } from 'react'
 
 import { ITask } from 'interfaces/task.interface'
 
 interface TasksContextType {
   tasks: ITask[]
-  // eslint-disable-next-line no-unused-vars
   addTask(task: ITask): void
-  // eslint-disable-next-line no-unused-vars
   deleteTask(taskToDelete: ITask): void
+}
+
+type Action = {
+  type: 'ADD_TASK' | 'DELETE_TASK'
+  value: ITask
+}
+
+export enum ActionTypes {
+  addTask = 'ADD_TASK',
+  deleteTask = 'DELETE_TASK',
 }
 
 export const TasksContext = createContext<TasksContextType>({
   tasks: [],
-  addTask: () => {},
-  deleteTask: () => {},
+  addTask: () => {
+    console.error('Cannot find addTask function deffinition')
+  },
+  deleteTask: () => {
+    console.error('Cannot find deleteTask function deffinition')
+  },
 })
 
+function reducer(state: ITask[], action: Action): ITask[] {
+  switch (action.type) {
+    case ActionTypes.addTask:
+      return [...state, action.value]
+    case ActionTypes.deleteTask:
+      const filteredState = state.filter(
+        task => task.name !== action.value.name
+      )
+      return filteredState
+    default:
+      return state
+  }
+}
+
 const TasksProvider: FC = ({ children }) => {
-  const [tasks, setTasks] = useState<ITask[]>([])
+  const [tasks, dispatch] = useReducer(reducer, [])
 
-  const addTask = (task: ITask) => setTasks([task, ...tasks])
+  function addTask(newTask: ITask) {
+    dispatch({
+      type: ActionTypes.addTask,
+      value: newTask,
+    })
+  }
 
-  function deleteTask(taskToDelete: ITask) {
-    const filteredTasks = tasks.filter(task => task !== taskToDelete)
-    setTasks(filteredTasks)
+  function deleteTask(newTask: ITask) {
+    dispatch({
+      type: ActionTypes.deleteTask,
+      value: newTask,
+    })
   }
 
   return (
