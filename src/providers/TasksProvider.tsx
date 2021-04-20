@@ -21,9 +21,11 @@ export enum ActionTypes {
 export const TasksContext = createContext<TasksContextType>({
   tasks: [],
   addTask: () => {
+    // eslint-disable-next-line no-console
     console.error('Cannot find addTask function deffinition')
   },
   deleteTask: () => {
+    // eslint-disable-next-line no-console
     console.error('Cannot find deleteTask function deffinition')
   },
 })
