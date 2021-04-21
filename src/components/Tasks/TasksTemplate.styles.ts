@@ -8,4 +8,7 @@ export const Wrapper = styled.div`
   border-radius: 20px;
   min-height: 90vh;
   margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
