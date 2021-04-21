@@ -1,0 +1,11 @@
+import styled from 'styled-components'
+
+import { theme } from 'assets/styles/theme'
+
+export const Wrapper = styled.div`
+  background-color: ${theme.colors.backgroundComponent};
+  width: 50vw;
+  border-radius: 20px;
+  min-height: 90vh;
+  margin: 40px;
+`
