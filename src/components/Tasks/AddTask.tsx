@@ -1,0 +1,49 @@
+import React, { ChangeEvent, FormEvent, useContext, useState } from 'react'
+
+import { FormWrapper } from './AddTask.styles'
+
+import { Input } from 'components/items/Input'
+import { Label } from 'components/items/Label'
+import { Button } from 'components/items/Button'
+import { TasksContext } from 'providers/TasksProvider'
+
+const initialFormState = { name: '' }
+
+export default function TaskItem() {
+  const [formValues, setFormValues] = useState(initialFormState)
+  const { addTask } = useContext(TasksContext)
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    setFormValues({
+      ...formValues,
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  function handleSubmitTask(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    if (!formValues.name) return
+
+    addTask(formValues)
+    setFormValues(initialFormState)
+  }
+
+  return (
+    <FormWrapper onSubmit={handleSubmitTask}>
+      <Label as="label" size="l" htmlFor="add-task">
+        Add Task
+      </Label>
+      <div>
+        <Input
+          type="text"
+          id="add-task"
+          name="name"
+          onChange={handleInputChange}
+          value={formValues.name}
+        />
+        <Button type="submit">Add</Button>
+      </div>
+    </FormWrapper>
+  )
+}
