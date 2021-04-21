@@ -1,5 +1,10 @@
 import Head from 'next/head'
 
+import { Wrapper } from './index.styles'
+
+import TasksProvider from 'providers/TasksProvider'
+import TasksTemplate from 'components/Tasks/TasksTemplate'
+
 export default function Home() {
   return (
     <div>
@@ -8,15 +13,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+      <Wrapper>
+        <TasksProvider>
+          <TasksTemplate />
+        </TasksProvider>
+      </Wrapper>
     </div>
   )
 }
