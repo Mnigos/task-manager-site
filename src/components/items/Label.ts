@@ -4,7 +4,7 @@ interface LabelProps {
   size?: 's' | 'm' | 'l' | 'xl'
 }
 
-export const Label = styled.label<LabelProps>`
+export const Label = styled.p<LabelProps>`
   margin: 2px;
 
   font-size: ${({ size }) => {
