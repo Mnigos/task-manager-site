@@ -1,4 +1,5 @@
 [![CI](https://github.com/Mnigos/task-manager-site/actions/workflows/main.yml/badge.svg)](https://github.com/Mnigos/task-manager-site/actions/workflows/main.yml)
+![Vercel](https://vercelbadge.vercel.app/api/mnigos/task-manager-site)
 [![codecov](https://codecov.io/gh/Mnigos/task-manager-site/branch/master/graph/badge.svg?token=grdJje2AWP)](https://codecov.io/gh/Mnigos/task-manager-site)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
@@ -7,6 +8,8 @@
 
 Simple frontend website using React.js and Next.js.
 This site helps me with learning react.
+
+[See site!](https://task-manager-site.vercel.app/)
 
 Another projects with same idea
 
