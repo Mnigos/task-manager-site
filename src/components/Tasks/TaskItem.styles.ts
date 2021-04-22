@@ -7,14 +7,18 @@ export const Item = styled.div`
   padding: 4px;
   max-width: 400px;
   min-height: 50px;
-  display: flex;
   font-size: ${theme.fontSize.xl};
   align-items: center;
   min-width: 200px;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: ${theme.colors.background};
+
+  p {
+    word-wrap: initial;
+    overflow-wrap: anywhere;
+  }
 
   &:hover {
     cursor: pointer;
@@ -22,6 +26,7 @@ export const Item = styled.div`
   }
 
   button {
-    margin-left: 30px;
+    min-width: 30px;
+    margin: 10px;
   }
 `
