@@ -1,7 +1,11 @@
 import styled from 'styled-components'
-import { FC } from 'react'
+import React, { MouseEventHandler } from 'react'
 
 import { theme } from 'assets/styles/theme'
+
+interface DeleteButtonProps {
+  onClick: MouseEventHandler<HTMLButtonElement>
+}
 
 const StyledButton = styled.button`
   width: 30px;
@@ -17,6 +21,12 @@ const StyledButton = styled.button`
   }
 `
 
-const DeleteButton: FC = props => <StyledButton {...props}>X</StyledButton>
+function DeleteButton({ onClick, ...props }: DeleteButtonProps) {
+  return (
+    <StyledButton onClick={onClick} {...props}>
+      X
+    </StyledButton>
+  )
+}
 
 export default DeleteButton
