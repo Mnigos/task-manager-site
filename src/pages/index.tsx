@@ -1,9 +1,13 @@
 import Head from 'next/head'
-
-import { Wrapper } from './index.styles'
+import styled from 'styled-components'
 
 import TasksProvider from 'providers/TasksProvider'
 import TasksTemplate from 'components/Tasks/TasksTemplate'
+
+const Wrapper = styled.main`
+  display: flex;
+  justify-content: center;
+`
 
 export default function Home() {
   return (
