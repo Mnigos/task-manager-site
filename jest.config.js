@@ -13,9 +13,13 @@ module.exports = {
     '/node_modules/',
     '^.+\\.module\\.(css|sass|scss)$',
   ],
+  moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    'src/(.*)': '<rootDir>/src/$1',
   },
+  modulePaths: ['node_modules', 'src'],
+  roots: ['src'],
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   globals: {
