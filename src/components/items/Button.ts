@@ -30,12 +30,10 @@ export const Button = styled.button<ButtonProps>`
   position: sticky;
   left: 0;
   top: 0;
-
   &:hover::after {
     transform: translateX(-50%);
     width: 80%;
   }
-
   &::after {
     content: '';
     width: 0;
@@ -47,7 +45,6 @@ export const Button = styled.button<ButtonProps>`
     transition: 0.5s ease-in-out;
     cursor: pointer;
   }
-
   &:active {
     background-color: ${({ isDarker }) =>
       isDarker ? theme.colors.background : theme.colors.backgroundComponent};
