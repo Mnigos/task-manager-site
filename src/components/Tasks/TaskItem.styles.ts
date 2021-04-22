@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme } from 'assets/styles/theme'
 
-export const Item = styled.p`
+export const Item = styled.div`
   margin: 10px;
   padding: 4px;
   max-width: 400px;
@@ -19,5 +19,9 @@ export const Item = styled.p`
   &:hover {
     cursor: pointer;
     background: #1a1a1a;
+  }
+
+  button {
+    margin-left: 30px;
   }
 `

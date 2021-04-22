@@ -15,7 +15,7 @@ export default function Tasks({ tasks }: TasksProps) {
       <StyledList>
         {tasks.map((task, i) => (
           <li key={i}>
-            <TaskItem value={task.name} />
+            <TaskItem task={task} />
           </li>
         ))}
       </StyledList>

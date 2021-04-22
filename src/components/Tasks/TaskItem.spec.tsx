@@ -4,13 +4,15 @@ import { mount } from 'enzyme'
 
 import TaskItem from './TaskItem'
 
+const mockTask = { name: 'Do some work' }
+
 describe('Task Item', () => {
   it('Renders component', () => {
-    render(<TaskItem value="Do some work" />)
+    render(<TaskItem task={mockTask} />)
   })
 
   it('Value displays', () => {
-    const wrapper = mount(<TaskItem value="Do some work" />)
+    const wrapper = mount(<TaskItem task={mockTask} />)
 
     expect(wrapper.find('p').text()).toEqual('Do some work')
   })

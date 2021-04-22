@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Item } from './TaskItem.styles'
+
+import DeleteButton from 'components/items/DeleteButton'
+import { TasksContext } from 'providers/TasksProvider'
+import { ITask } from 'interfaces/task.interface'
 interface TaskItemProps {
-  value: string
+  task: ITask
 }
 
-export default function TaskItem({ value }: TaskItemProps) {
+export default function TaskItem({ task }: TaskItemProps) {
+  const { deleteTask } = useContext(TasksContext)
+
   return (
     <>
-      <Item>{value}</Item>
+      <Item>
+        <p>{task.name}</p>
+        <DeleteButton onClick={() => deleteTask(task)} />
+      </Item>
     </>
   )
 }
