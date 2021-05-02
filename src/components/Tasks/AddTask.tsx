@@ -9,7 +9,7 @@ import { TasksContext } from 'providers/TasksProvider'
 
 const initialFormState = { name: '' }
 
-export default function TaskItem() {
+export default function AddTask() {
   const [formValues, setFormValues] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState('')
   const { addTask } = useContext(TasksContext)
