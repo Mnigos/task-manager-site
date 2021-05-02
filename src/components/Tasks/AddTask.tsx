@@ -11,6 +11,7 @@ const initialFormState = { name: '' }
 
 export default function TaskItem() {
   const [formValues, setFormValues] = useState(initialFormState)
+  const [errorMessage, setErrorMessage] = useState('')
   const { addTask } = useContext(TasksContext)
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
@@ -23,7 +24,7 @@ export default function TaskItem() {
   function handleSubmitTask(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    if (!formValues.name) return
+    if (!formValues.name) return setErrorMessage('Cannot add empty task')
 
     addTask(formValues)
     setFormValues(initialFormState)
@@ -44,6 +45,7 @@ export default function TaskItem() {
         />
         <Button type="submit">Add</Button>
       </div>
+      <p>{errorMessage}</p>
     </FormWrapper>
   )
 }
