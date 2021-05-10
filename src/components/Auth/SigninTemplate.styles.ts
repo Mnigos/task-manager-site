@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   border-radius: 20px;
   min-height: 70vh;
   margin: 40px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,4 +16,11 @@ export const Wrapper = styled.div`
 
 export const Header = styled.header`
   margin: 35px;
+`
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
