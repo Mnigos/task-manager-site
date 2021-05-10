@@ -12,3 +12,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `
+
+export const Header = styled.header`
+  margin: 35px;
+`

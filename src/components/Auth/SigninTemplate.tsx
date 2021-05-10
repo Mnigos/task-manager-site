@@ -1,13 +1,22 @@
 import React from 'react'
 
+import { Label } from '../items/Label'
+
 import AuthFormElement from './AuthFormElement'
-import { Wrapper } from './SigninTemplate.styles'
+import { Wrapper, Header } from './SigninTemplate.styles'
 
 export default function SigninTemplate() {
   return (
     <Wrapper>
-      <AuthFormElement name="Username" />
-      <AuthFormElement name="Password" password />
+      <Header>
+        <Label as="b" size="xl">
+          Sign in
+        </Label>
+      </Header>
+      <div>
+        <AuthFormElement name="Username" />
+        <AuthFormElement name="Password" password />
+      </div>
     </Wrapper>
   )
 }
