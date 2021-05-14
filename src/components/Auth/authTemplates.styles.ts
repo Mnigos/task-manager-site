@@ -24,3 +24,11 @@ export const Form = styled.form`
   justify-content: center;
   align-items: center;
 `
+
+export const Alert = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`

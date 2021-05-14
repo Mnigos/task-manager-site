@@ -1,12 +1,15 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import { Label } from '../items/Label'
 import { Button } from '../items/Button'
 
 import AuthFormElement from './AuthFormElement'
-import { Wrapper, Header, Form } from './AuthTemplates.styles'
+import { Wrapper, Header, Form, Alert } from './AuthTemplates.styles'
 
 export default function SignupTemplate() {
+  const router = useRouter()
+
   return (
     <Wrapper>
       <Header>
@@ -21,6 +24,10 @@ export default function SignupTemplate() {
         <AuthFormElement name="Password" password />
         <Button type="submit">Sign up</Button>
       </Form>
+      <Alert>
+        <p>Already have an account?</p>
+        <Button onClick={() => router.push('/auth/signin')}>Sign in</Button>
+      </Alert>
     </Wrapper>
   )
 }
