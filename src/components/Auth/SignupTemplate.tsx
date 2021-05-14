@@ -6,18 +6,20 @@ import { Button } from '../items/Button'
 import AuthFormElement from './AuthFormElement'
 import { Wrapper, Header, Form } from './AuthTemplates.styles'
 
-export default function SigninTemplate() {
+export default function SignupTemplate() {
   return (
     <Wrapper>
       <Header>
         <Label as="b" size="l">
-          Sign in to TaskManager
+          Sign up to TaskManager
         </Label>
       </Header>
       <Form>
         <AuthFormElement name="Username" />
+        <AuthFormElement name="email" />
         <AuthFormElement name="Password" password />
-        <Button type="submit">Sign in</Button>
+        <AuthFormElement name="Password" password />
+        <Button type="submit">Sign up</Button>
       </Form>
     </Wrapper>
   )
