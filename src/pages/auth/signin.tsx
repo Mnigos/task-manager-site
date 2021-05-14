@@ -1,15 +1,8 @@
 import Head from 'next/head'
-import styled from 'styled-components'
+
+import { Wrapper } from './auth.styles'
 
 import SigninTemplate from 'components/Auth/SigninTemplate'
-
-const Wrapper = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-`
 
 export default function Home() {
   return (
