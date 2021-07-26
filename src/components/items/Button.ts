@@ -9,8 +9,7 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<ButtonProps>`
-  background-color: ${({ isDarker }) =>
-    isDarker ? theme.colors.backgroundComponent : theme.colors.background};
+  background-color: ${theme.colors.background};
   color: ${theme.colors.white};
   border: none;
   width: ${({ size }) => {
@@ -46,7 +45,6 @@ export const Button = styled.button<ButtonProps>`
     cursor: pointer;
   }
   &:active {
-    background-color: ${({ isDarker }) =>
-      isDarker ? theme.colors.background : theme.colors.backgroundComponent};
+    background-color: ${theme.colors.background};
   }
 `

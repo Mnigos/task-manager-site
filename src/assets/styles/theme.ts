@@ -9,6 +9,7 @@ export const theme = {
     secondary: '#2ECC71',
     icon: '#979797',
     shade: '#F0F0F0',
+    black: '#000000',
   },
   fontSize: {
     xl: '24px',
