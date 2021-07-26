@@ -20,6 +20,6 @@ export const Label = styled.p<LabelProps>`
   color: ${({ color }) => {
     if (color === 'error') return theme.colors.error
     else if (color === 'warn') return theme.colors.warning
-    else return theme.colors.white
+    else return theme.colors.black
   }};
 `
