@@ -20,8 +20,6 @@ export const Button = styled.button<ButtonProps>`
     if (shape === 'ghost') return theme.colors[color || 'primary']
     else return theme.colors.white
   }};
-  cursor: pointer;
-  text-transform: uppercase;
   border: ${({ shape, color }) => {
     if (shape === 'ghost')
       return `1px ${theme.colors[color || 'primary']} solid`
@@ -39,13 +37,15 @@ export const Button = styled.button<ButtonProps>`
     else if (size === 'm') return '80px'
     else return '30px'
   }};
-  border-radius: 4px;
   box-shadow: ${({ shape }) => {
     if (shape === 'ghost') return 'none'
     else
       return `0px 1px 2px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.12),
     0px 1px 8px rgba(0, 0, 0, 0.1)`
   }};
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 4px;
   margin: 7px;
   position: sticky;
   left: 0;
