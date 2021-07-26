@@ -6,18 +6,30 @@ interface ButtonProps {
   isDarker?: boolean
   size?: 's' | 'm' | 'l' | 'xl'
   type?: 'button' | 'submit' | 'reset'
+  shape?: 'raised' | 'ghost'
+  color?: 'primary' | 'white' | 'secondary' | 'black'
 }
 
 export const Button = styled.button<ButtonProps>`
-  background-color: ${({ isDarker }) =>
-    isDarker ? theme.colors.backgroundComponent : theme.colors.background};
-  color: ${theme.colors.white};
-  border: none;
+  background-color: ${({ shape, color }) => {
+    if (shape === 'ghost') return theme.colors.white
+    else return theme.colors[color || 'primary']
+  }};
+  color: ${({ color, shape }) => {
+    if (color === 'white') return theme.colors.black
+    if (shape === 'ghost') return theme.colors[color || 'primary']
+    else return theme.colors.white
+  }};
+  border: ${({ shape, color }) => {
+    if (shape === 'ghost')
+      return `1px ${theme.colors[color || 'primary']} solid`
+    else return 'none'
+  }};
   width: ${({ size }) => {
-    if (size === 'xl') return '500px'
-    else if (size === 'l') return '350px'
-    else if (size === 'm') return '250px'
-    else return '100px'
+    if (size === 'xl') return '400px'
+    else if (size === 'l') return '320px'
+    else if (size === 'm') return '220px'
+    else return '70px'
   }};
   height: ${({ size }) => {
     if (size === 'xl') return '150px'
@@ -25,28 +37,26 @@ export const Button = styled.button<ButtonProps>`
     else if (size === 'm') return '80px'
     else return '30px'
   }};
-  border-radius: 10px;
-  margin: 3px;
+  box-shadow: ${({ shape }) => {
+    if (shape === 'ghost') return 'none'
+    else
+      return `0px 1px 2px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.12),
+    0px 1px 8px rgba(0, 0, 0, 0.1)`
+  }};
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin: 7px;
   position: sticky;
   left: 0;
   top: 0;
-  &:hover::after {
-    transform: translateX(-50%);
-    width: 80%;
-  }
-  &::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: ${theme.colors.white};
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-  }
+  transition: 0.05s ease-in;
+
   &:active {
-    background-color: ${({ isDarker }) =>
-      isDarker ? theme.colors.background : theme.colors.backgroundComponent};
+    transform: translatey(3px);
+
+    &::after {
+      transform: translatey(3px);
+    }
   }
 `
