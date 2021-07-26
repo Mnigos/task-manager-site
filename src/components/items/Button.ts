@@ -46,15 +46,13 @@ export const Button = styled.button<ButtonProps>`
       return `0px 1px 2px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.12),
     0px 1px 8px rgba(0, 0, 0, 0.1)`
   }};
-  margin: 3px;
+  margin: 7px;
   position: sticky;
   left: 0;
   top: 0;
   transition: 0.05s ease-in;
 
   &:active {
-    top: 2px;
-
     transform: translatey(3px);
 
     &::after {
