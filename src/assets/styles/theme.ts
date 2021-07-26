@@ -10,6 +10,7 @@ export const theme = {
     icon: '#979797',
     shade: '#F0F0F0',
     black: '#000000',
+    white: '#FFFFFF',
   },
   fontSize: {
     xl: '24px',
