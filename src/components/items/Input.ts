@@ -1,12 +1,18 @@
+import { theme } from '@/assets/styles/theme'
 import styled from 'styled-components'
 
 interface InputProps {
+  color?: 'primary' | 'white' | 'secondary' | 'black'
   size?: 's' | 'm' | 'l' | 'xl'
 }
 
 export const Input = styled.input<InputProps>`
-  border-radius: 5px;
-  border: none;
+  border-radius: 4px;
+  margin: 7px;
+  position: sticky;
+  left: 0;
+  top: 0;
+  position: absolute;
 
   width: ${({ size }) => {
     if (size === 'xl') return '600px'
@@ -15,12 +21,14 @@ export const Input = styled.input<InputProps>`
     else return '150px'
   }};
   height: ${({ size }) => {
-    if (size === 'xl') return '120px'
-    else if (size === 'l') return '80px'
-    else if (size === 'm') return '60px'
-    else return '20px'
+    if (size === 'xl') return '150px'
+    else if (size === 'l') return '100px'
+    else if (size === 'm') return '80px'
+    else return '30px'
   }};
 
+  color: ${theme.colors.black};
+  border: ${({ color }) => `1px ${theme.colors[color || 'primary']} solid`};
   &:hover,
   &:focus,
   &:active {
