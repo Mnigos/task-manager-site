@@ -1,5 +1,6 @@
-import { theme } from '@/assets/styles/theme'
 import styled from 'styled-components'
+
+import { theme } from 'assets/styles/theme'
 
 interface InputProps {
   color?: 'primary' | 'white' | 'secondary' | 'black'

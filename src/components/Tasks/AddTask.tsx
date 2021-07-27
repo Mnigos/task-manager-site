@@ -2,9 +2,9 @@ import React, { ChangeEvent, FormEvent, useContext, useState } from 'react'
 
 import { FormWrapper } from './AddTask.styles'
 
+import { Button } from 'components/items/Button'
 import { Input } from 'components/items/Input'
 import { Label } from 'components/items/Label'
-import { Button } from 'components/items/Button'
 import { TasksContext } from 'providers/TasksProvider'
 
 const initialFormState = { name: '' }
@@ -39,6 +39,7 @@ export default function TaskItem() {
         <Input
           type="text"
           id="add-task"
+          placeholder="Task Name"
           name="name"
           onChange={handleInputChange}
           value={formValues.name}
