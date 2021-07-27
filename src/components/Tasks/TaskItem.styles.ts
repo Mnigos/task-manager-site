@@ -5,6 +5,9 @@ import { theme } from 'assets/styles/theme'
 export const Item = styled.div`
   margin: 10px;
   padding: 4px;
+  @media screen and (max-width: 450px) {
+    width: calc(328px * 0.8);
+  }
   width: 328px;
   height: 55px;
   font-size: ${theme.fontSize.xl};
