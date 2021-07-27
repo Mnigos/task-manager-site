@@ -31,10 +31,10 @@ const StyledButton = styled.button<ButtonProps>`
     else return 'none'
   }};
   width: ${({ size }) => {
-    if (size === 'xl') return '400px'
-    else if (size === 'l') return '320px'
-    else if (size === 'm') return '220px'
-    else return '70px'
+    if (size === 'xl') return '150px'
+    else if (size === 'l') return '100px'
+    else if (size === 'm') return '80px'
+    else return '30px'
   }};
   height: ${({ size }) => {
     if (size === 'xl') return '150px'
@@ -48,8 +48,6 @@ const StyledButton = styled.button<ButtonProps>`
       return `0px 1px 2px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.12),
     0px 1px 8px rgba(0, 0, 0, 0.1)`
   }};
-  width: 30px;
-  height: 30px;
   background-color: ${theme.colors.primary};
   border-radius: 4px;
   border: none;
