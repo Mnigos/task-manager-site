@@ -21,6 +21,7 @@ export const Item = styled.div`
   background-color: ${theme.colors.background};
 
   p {
+    margin: 10px;
     word-wrap: initial;
     overflow-wrap: anywhere;
   }
