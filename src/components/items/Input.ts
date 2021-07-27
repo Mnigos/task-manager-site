@@ -12,7 +12,6 @@ export const Input = styled.input<InputProps>`
   position: sticky;
   left: 0;
   top: 0;
-  position: absolute;
 
   width: ${({ size }) => {
     if (size === 'xl') return '600px'
