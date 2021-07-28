@@ -46,7 +46,7 @@ export default function TaskItem() {
         />
         <Button type="submit">Add</Button>
       </div>
-      <Label color="error">{errorMessage}</Label>
+      <Label color="error">{errorMessage}&nbsp;</Label>
     </FormWrapper>
   )
 }
