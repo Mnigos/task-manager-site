@@ -12,7 +12,7 @@ export default function Footer() {
     <Wrapper>
       Copyright &copy;
       {new Date().getFullYear()}
-      Igor Makowski
+      &nbsp;Igor Makowski
     </Wrapper>
   )
 }
