@@ -27,6 +27,7 @@ export default function TaskItem() {
     if (!formValues.name) return setErrorMessage('Cannot add empty task')
 
     addTask(formValues)
+    setErrorMessage('')
     setFormValues(initialFormState)
   }
 
