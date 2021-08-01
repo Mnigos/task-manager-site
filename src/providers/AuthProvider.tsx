@@ -13,7 +13,7 @@ interface AuthContextType {
   signup(email: string, password: string): Promise<firebase.auth.UserCredential>
 }
 
-const AuthContext = createContext<AuthContextType>({
+export const AuthContext = createContext<AuthContextType>({
   currentUser: null,
   signup: () => {
     throw new Error('Cannot find deleteTask function deffinition')
@@ -22,7 +22,7 @@ const AuthContext = createContext<AuthContextType>({
 
 export const useAuth = () => useContext(AuthContext)
 
-export const AuthProvider: FC = ({ children }) => {
+const AuthProvider: FC = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>()
 
   const signup = (email: string, password: string) =>
@@ -40,3 +40,5 @@ export const AuthProvider: FC = ({ children }) => {
     </AuthContext.Provider>
   )
 }
+
+export default AuthProvider
