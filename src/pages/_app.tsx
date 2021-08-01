@@ -6,6 +6,7 @@ import NavBar from 'components/NavBar/NavBar'
 import Footer from 'components/Footer'
 
 import 'assets/styles/fonts.css'
+import AuthProvider from 'providers/AuthProvider'
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,12 +18,14 @@ const Wrapper = styled.div`
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Wrapper>
-      <GlobalStyle />
-      <div>
-        <NavBar />
-        <Component {...pageProps} />
-      </div>
-      <Footer />
+      <AuthProvider>
+        <GlobalStyle />
+        <div>
+          <NavBar />
+          <Component {...pageProps} />
+        </div>
+        <Footer />
+      </AuthProvider>
     </Wrapper>
   )
 }
