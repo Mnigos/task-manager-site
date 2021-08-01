@@ -16,7 +16,7 @@ interface AuthContextType {
 export const AuthContext = createContext<AuthContextType>({
   currentUser: null,
   signup: () => {
-    throw new Error('Cannot find deleteTask function deffinition')
+    throw new Error('Cannot find signup function deffinition')
   },
 })
 
