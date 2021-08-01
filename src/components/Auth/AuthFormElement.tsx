@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes, forwardRef } from 'react'
 
 import { Input } from '../items/Input'
 import { Label } from '../items/Label'
@@ -15,11 +15,36 @@ interface AuthFormElementProps extends HTMLInputProps {
   password?: boolean
 }
 
-export default function AuthFormElement({
+const AuthFormElement = forwardRef<HTMLInputElement, AuthFormElementProps>(
+  ({ name, password, value, onChange, ...props }, ref) => {
+    return (
+      <FormWrapper>
+        <Label as="label" htmlFor={name} size="m">
+          {name}
+        </Label>
+        <Input
+          id={name}
+          type={password ? 'password' : 'text'}
+          value={value}
+          onChange={onChange}
+          {...props}
+          ref={ref}
+        />
+      </FormWrapper>
+    )
+  }
+)
+
+AuthFormElement.displayName = 'AuthFormElement'
+
+export default AuthFormElement
+
+/*
+{
   name,
   password,
   ...props
-}: AuthFormElementProps) {
+}) {
   return (
     <FormWrapper>
       <Label as="label" htmlFor={name} size="m">
@@ -28,4 +53,4 @@ export default function AuthFormElement({
       <Input id={name} type={password ? 'password' : 'text'} {...props} />
     </FormWrapper>
   )
-}
+} */

@@ -27,6 +27,7 @@ export default function TaskItem() {
     if (!formValues.name) return setErrorMessage('Cannot add empty task')
 
     addTask(formValues)
+    setErrorMessage('')
     setFormValues(initialFormState)
   }
 
@@ -46,7 +47,7 @@ export default function TaskItem() {
         />
         <Button type="submit">Add</Button>
       </div>
-      <Label color="error">{errorMessage}</Label>
+      <Label color="error">{errorMessage}&nbsp;</Label>
     </FormWrapper>
   )
 }
