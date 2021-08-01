@@ -2,9 +2,8 @@ import { AppProps } from 'next/app'
 import styled from 'styled-components'
 
 import { GlobalStyle } from 'assets/styles/GlobalStyle'
-import NavBar from 'components/NavBar/NavBar'
 import Footer from 'components/Footer'
-
+import NavBar from 'components/NavBar/NavBar'
 import 'assets/styles/fonts.css'
 import AuthProvider from 'providers/AuthProvider'
 
