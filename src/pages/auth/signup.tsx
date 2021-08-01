@@ -1,6 +1,11 @@
 import Head from 'next/head'
+import styled from 'styled-components'
 
-import { Wrapper } from './auth.styles'
+export const Wrapper = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 import SignupTemplate from 'components/Auth/SignupTemplate'
 
