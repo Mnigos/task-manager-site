@@ -12,9 +12,9 @@ const clientCredentials = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 }
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(clientCredentials)
-  firebase.analytics()
-}
+const app = firebase.initializeApp(clientCredentials)
+firebase.analytics()
 
-export default firebase
+export const auth = app.auth()
+
+export default app
