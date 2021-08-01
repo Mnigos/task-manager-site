@@ -22,7 +22,7 @@ export default function SignupTemplate() {
           <AuthFormElement name="Username" />
           <AuthFormElement name="E-mail" />
           <AuthFormElement name="Password" password />
-          <AuthFormElement name="Repeat Password" password />
+          <AuthFormElement name="Password Confirmation" password />
           <Button type="submit">Sign up</Button>
         </Form>
       </div>
