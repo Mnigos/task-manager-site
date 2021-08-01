@@ -10,7 +10,10 @@ import firebase from 'firebase/app'
 
 interface AuthContextType {
   currentUser: firebase.User | null | undefined
-  signup(email: string, password: string): Promise<firebase.auth.UserCredential>
+  signup(
+    email: string,
+    password: string
+  ): Promise<firebase.auth.UserCredential> | null
 }
 
 export const AuthContext = createContext<AuthContextType>({
@@ -25,13 +28,20 @@ export const useAuth = () => useContext(AuthContext)
 const AuthProvider: FC = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>()
 
-  const signup = (email: string, password: string) =>
-    auth.createUserWithEmailAndPassword(email, password)
+  // eslint-disable-next-line no-console
+  if (!auth) console.error('Firebase connection failed')
+
+  const signup = (email: string, password: string) => {
+    if (auth) return auth.createUserWithEmailAndPassword(email, password)
+    else return null
+  }
 
   useEffect(() => {
-    return auth.onAuthStateChanged(user => {
-      setCurrentUser(user)
-    })
+    if (auth)
+      return auth.onAuthStateChanged(user => {
+        setCurrentUser(user)
+      })
+    else return
   }, [])
 
   return (
