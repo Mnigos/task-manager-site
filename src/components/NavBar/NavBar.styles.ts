@@ -17,3 +17,12 @@ export const H1 = styled.h1`
   font-weight: 400;
   font-size: calc(${theme.fontSize.xl}* 1.1);
 `
+export const HeaderButton = styled.button`
+  outline: none;
+  background: none;
+  cursor: pointer;
+  margin: none;
+  border: none;
+  color: ${theme.colors.white};
+  font-family: 'Roboto', sans-serif;
+`
