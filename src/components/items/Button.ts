@@ -52,6 +52,15 @@ export const Button = styled.button<ButtonProps>`
   top: 0;
   transition: 0.05s ease-in;
 
+  &:hover {
+    box-shadow: ${({ shape }) => {
+      if (shape === 'ghost') return 'none'
+      else
+        return `1px 3px 4px rgba(0, 0, 0, 0.16), 1px 4px 6px rgba(0, 0, 0, 0.12),
+    1px 3px 10px rgba(0, 0, 0, 0.1)`
+    }};
+  }
+
   &:active {
     transform: translatey(3px);
 
